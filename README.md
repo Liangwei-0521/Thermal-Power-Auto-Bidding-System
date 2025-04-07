@@ -82,26 +82,26 @@ $$
 
 #### 2.3.4 Price Triggering Mechanism
 
-Introduce 0-1 binary matrices `is_real_state[i, t]` and `real_choose[i, t]`.
+Introduce 0-1 binary matrices `is[i, t]` and `real[i, t]`.
 
 Using the Big-M method:
 
 $$
-P_{\text{real},t} - p_{i} \leq M \cdot \text{is\_real\_state}[i, t]
+P_{\text{real},t} - p_{i} \leq M \cdot \text{is}[i, t]
 $$
 
 $$
-P_{\text{real},t} - p_{i} \geq -M \cdot (1 - \text{is\_real\_state}[i, t])
+P_{\text{real},t} - p_{i} \geq -M \cdot (1 - \text{is}[i, t])
 $$
 
 Triggering decision for each output segment:
 
 $$
-\text{real\_choose}[i,t] = \text{is\_real\_state}[i,t] - \text{is\_real\_state}[i+1,t] \quad \forall i \in \{1, ..., N-1\}
+\text{real}[i,t] = \text{is}[i,t] - \text{is}[i+1,t] \quad \forall i \in \{1, ..., N-1\}
 $$
 
 $$
-\text{real_choose}[N, t] = \text{is_real_state}[N, t]
+\text{real}[N, t] = \text{is}[N, t]
 $$
 
 #### 2.3.5 Daily Generation Constraint
@@ -109,13 +109,13 @@ $$
 Power output at time $t$:
 
 $$
-\text{sub\_q}_t = \sum_{i=1}^{N} (p_{i} \cdot \text{real\_choose}[i, t])
+\text{subQ}_t = \sum_{i=1}^{N} (p_{i} \cdot \text{real}[i, t])
 $$
 
 Total generation throughout the day:
 
 $$
-Q = \sum_{t=1}^T \text{sub_q}_{t}
+Q = \sum_{t=1}^T \text{subQ}_{t}
 $$
 
 Subject to:
