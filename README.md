@@ -115,7 +115,7 @@ $$
 Total generation throughout the day:
 
 $$
-Q = \sum_{t=1}^T \text{sub\_q}_t
+Q = \sum_{t=1}^T \text{sub_q}_{t}
 $$
 
 Subject to:
